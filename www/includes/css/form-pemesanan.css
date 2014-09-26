@@ -1,0 +1,48 @@
+body {
+	padding-top : 60px;
+	padding-bottom : 60px;
+}
+p {
+	margin : 0;
+	padding : 5px;
+}
+.container {
+	margin-bottom : 10px !important;
+}
+.input-group > input {
+	margin : 0 !important;
+}
+textarea {
+	resize: none;
+}
+.form-group {
+	margin : 0 !important;
+}
+.link-button {
+	max-width : 100%;
+	padding : 0;
+	margin : 0 auto;
+}
+.link-button button, .link-button a {
+	margin : 0 !important;
+}
+.glyphicon-chevron-right {
+	float : right;
+	margin-right : 10px;
+	vertical-align : middle;
+}
+.table-box {
+	border		:	solid 1px #EEEEEE;
+	margin		:	0 0 15px;
+	padding		:	45px 15px 15px;
+	position	:	relative;
+}
+
+.table-box .table-title {
+	position	:	absolute;
+	top			:	15px;
+	left		:	15px;
+	font-size	:	14px;
+	font-weight	:	700;
+	color		:	#959595;
+}

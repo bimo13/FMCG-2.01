@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>FMCG</title>
+        
+        <!-- Bootstrap core CSS -->
+    	<link href="includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        
+        <!-- Custom styles for form-pemesanan.html -->
+    	<link href="includes/css/form-pemesanan.css" rel="stylesheet">
+        <link href="includes/css/dialogs.css" rel="stylesheet">
+        
+		<!-- Custom CSS -->
+    	<link href="includes/css/my.css" rel="stylesheet">
+		<link href="includes/css/my-button.css" rel="stylesheet">
+		
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        
+    </head>
+    
+    <body>
+    	
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="javascript:void(0);">Total IT FMCG</a>
+                </div>
+            </div>
+        </nav>
+        
+		<input type="hidden" name="sid" id="sid" />
+		<input type="hidden" name="trx_id" id="trx_id" />
+		
+        <div class="container">
+			
+			<div class="row">
+				
+				<div class="col-sm-12">
+					<div class="form-group">
+						<label>ID Apotek</label>
+					</div>
+				</div>
+				
+				<div class="col-sm-6">
+					
+					<div class="form-group mg-bottom-10px">
+						<form role="form" id="form-idToko" autocomplete="off">
+							<div class="input-group input-group-lg">
+								<input type="text" name="store_id" id="store_id" class="form-control" required>
+								<span class="input-group-btn">
+									<button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+								</span>
+							</div>
+						</form>
+					</div>
+					
+				</div>
+				
+				<div class="col-sm-6">
+					
+					<div class="form-group mg-bottom-10px">
+						<button class="btn btn-lg btn-block btn-primary" type="button">SCAN BARCODE <span class="glyphicon glyphicon-barcode pull-right pd-left-10px pd-right-10px"></span></button>
+					</div>
+					
+				</div>
+				
+			</div>
+			
+			<div class="row">
+				
+				<div class="col-sm-12">
+					
+					<div class="table-box">
+						<span class="table-title">DATA APOTEK</span>
+						<table class="table table-striped">
+							<tbody>
+								<tr>
+									<td class="col-sm-3">Nama Apotek</td>
+									<td class="col-sm-1">:</td>
+									<td class="col-sm-8" id="store_name"></td>
+								</tr>
+								<tr>
+									<td class="col-sm-3">Alamat</td>
+									<td class="col-sm-1">:</td>
+									<td class="col-sm-8" id="store_addr"></td>
+								</tr>
+								<tr>
+									<td class="col-sm-3">No. Telp.</td>
+									<td class="col-sm-1">:</td>
+									<td class="col-sm-8" id="store_telp"></td>
+								</tr>
+								<tr>
+									<td class="col-sm-3">Email</td>
+									<td class="col-sm-1">:</td>
+									<td class="col-sm-8" id="store_mail"></td>
+								</tr>
+								<tr>
+									<td class="col-sm-3">Nama Pemilik</td>
+									<td class="col-sm-1">:</td>
+									<td class="col-sm-8" id="store_ownr_name"></td>
+								</tr>
+								<tr>
+									<td class="col-sm-3">Alamat Pemilik</td>
+									<td class="col-sm-1">:</td>
+									<td class="col-sm-8" id="store_ownr_addr"></td>
+								</tr>
+								<tr>
+									<td class="col-sm-3">No. Telp. Pemilik</td>
+									<td class="col-sm-1">:</td>
+									<td class="col-sm-8" id="store_ownr_telp"></td>
+								</tr>
+							</tbody>
+						</table>
+						
+					</div>
+					
+				</div>
+				
+				<div class="col-sm-6 hidden row_data">
+					<button class="btn btn-lg btn-block btn-warning" type="button" onClick="conDelDataToko()">HAPUS DATA APOTEK</button>
+				</div>
+				
+			</div>
+			
+			<div class="row hidden row_data">
+				
+				<div class="col-sm-12 mg-top-10px mg-bottom-10px">
+					<div class="bg-primary pd-all-15px color-white">DATA PRODUK</div>
+				</div>
+				
+				<div class="col-sm-12">
+					<div class="form-group">
+						<label>Kata Kunci Produk</label>
+					</div>
+				</div>
+				
+				<div class="col-sm-6">
+					
+					<div class="form-group mg-bottom-10px">
+						<form role="form" id="form-searchKeyword" autocomplete="off">
+							<div class="input-group input-group-lg">
+								<input type="text" name="product_keyword" id="product_keyword" class="form-control" required>
+								<span class="input-group-btn">
+									<button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+								</span>
+							</div>
+						</form>
+					</div>
+					
+				</div>
+				
+				<div class="col-sm-6">
+					
+					<div class="form-group mg-bottom-10px">
+						<button class="btn btn-lg btn-block btn-primary" type="button">SCAN BARCODE PRODUK <span class="glyphicon glyphicon-barcode pull-right pd-left-10px pd-right-10px"></span></button>
+					</div>
+					
+				</div>
+				
+				<div class="col-sm-12">
+					
+					<form role="form" id="form-dataProduk" autocomplete="off">
+						
+						<div class="form-group mg-bottom-10px">
+							<label class="marginless paddingless" for="product_name">Nama Produk</label>
+							<select class="form-control input-lg" name="product_name" id="product_name" onChange="getDataProduk(this.value)" disabled>
+								<option value=""></option>
+							</select>
+						</div>
+						
+						<div class="form-group mg-bottom-10px">
+							<label class="marginless paddingless" for="product_price">Harga Produk</label>
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon">Rp.</span>
+								<input type="text" name="product_price" id="product_price" class="form-control" disabled />
+								<span class="input-group-addon">per</span>
+								<span class="input-group-addon product_unit">-</span>
+							</div>
+						</div>
+						
+						<div class="form-group mg-bottom-10px">
+							<label class="marginless paddingless" for="product_stock">Stok Produk</label>
+							<div class="input-group input-group-lg">
+								<input type="text" name="product_stock" id="product_stock" class="form-control" disabled />
+								<span class="input-group-addon product_unit">-</span>
+							</div>
+						</div>
+						
+						<div class="form-group mg-bottom-10px">
+							<label class="marginless paddingless" for="order_qty">Jumlah Pemesanan</label>
+							<div class="input-group input-group-lg">
+								<input type="text" name="order_qty" id="order_qty" class="form-control" disabled />
+								<span class="input-group-addon product_unit">-</span>
+							</div>
+						</div>
+						
+						<div class="form-group mg-bottom-10px">
+							<label class="marginless paddingless" for="order_subtotal">Total Harga Pesanan</label>
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon">Rp.</span>
+								<input type="text" name="order_subtotal" id="order_subtotal" class="form-control" disabled />
+							</div>
+						</div>
+						
+						<div class="form-group mg-bottom-10px">
+							<input type="submit" id="btn-dataPesanan" class="btn btn-lg btn-primary" value="TAMBAHKAN DATA PESANAN" disabled>
+						</div>
+						
+					</form>
+					
+				</div>
+				
+			</div>
+			
+			<div class="row mg-top-15px hidden row_data">
+				
+				<div class="col-sm-12">
+					
+					<div class="table-box">
+						<span class="table-title">REKAP PESANAN</span>
+						<input type="hidden" name="trx_total" id="trx_total" value="0" />
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>No.</th>
+									<th>Nama Produk</th>
+									<th>Jumlah Pemesanan</th>
+									<th colspan="2" align="center">Sub Total</th>
+									<th align="center">Menu</th>
+								</tr>
+							</thead>
+							<tbody id="rekap_pesanan">
+								
+							</tbody>
+						</table>
+					</div>
+					
+				</div>
+				
+				<div class="col-sm-12">
+					
+					<div class="form-group mg-bottom-10px">
+						<input type="button" id="btn-dataTrx" class="btn btn-lg btn-primary" value="SIMPAN DATA TRANSAKSI" onClick="conSavDataPesanan();" disabled />
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+        
+        <div class="container">
+        	<div class="link-button">
+            	<a href="main-page.html" class="btn btn-default btn-lg btn-block">Main Page <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a href="form-pembelian.html" class="btn btn-default btn-lg btn-block">Form Pembelian <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <button type="button" class="btn btn-default btn-lg btn-block" onClick="logout();">Sign Out <span class="glyphicon glyphicon-chevron-right"></span></button>
+            </div>
+            <p class="messages err_body_bg">
+                <span class="text-messages err_body_text"></span>
+            </p>
+        </div>
+        
+		<!-- Dialogs -->
+        <div class="modal fade" id="FMCGDialogs" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myDialogs" aria-hidden="true">
+        	<div class="modal-dialog">
+                <div class="modal-content">
+                	<div class="modal-header">
+                    	<h4 class="modal-title" id="myDialogs"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="alert" id="myDialogsText"></p>
+                    </div>
+                    <div class="modal-footer" id="myDialogsFoot">
+                    	<button type="button" class="btn btn-default" id="button-DialogYes"><span class="glyphicon glyphicon-ok"></span> Ya</button>
+                        <button type="button" class="btn btn-default" id="button-DialogNo"><span class="glyphicon glyphicon-remove"></span> Tidak</button>
+                        <button type="button" class="btn btn-default" id="button-DialogClose"><span class="glyphicon glyphicon-remove"></span> Tutup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- "Please Wait" Dialog -->
+        <div class="modal fade" id="pleasewait" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myWaitingModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                    	<h4 class="modal-title" id="myWaitingModal">Harap tunggu...</h4>
+                    	<div class="progress progress-striped active">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+        <script src="cordova.js" type="text/javascript"></script>
+        <script src="barcodescanner.js" type="text/javascript"></script>
+        <script src="includes/js/func-barcodeScanner.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+        
+        <script src="includes/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+        <script src="includes/js/jquery.validate.min.js" type="text/javascript"></script>
+		<script src="includes/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        
+		<script src="includes/js/func-sessionCheck.js"></script>
+        <script src="includes/js/func-closeApp.js"></script>
+        <script src="includes/js/func-logout.js"></script>
+		
+		<script src="includes/js/form-pemesanan/val-idToko.js"></script>
+		<script src="includes/js/form-pemesanan/get-dataToko.js"></script>
+		<script src="includes/js/form-pemesanan/del-dataToko.js"></script>
+		
+		<script src="includes/js/form-pemesanan/val-searchKeyword.js"></script>
+		<script src="includes/js/form-pemesanan/get-searchKeyword.js"></script>
+		
+		<script src="includes/js/form-pemesanan/val-dataProduk.js"></script>
+		<script src="includes/js/form-pemesanan/get-dataProduk.js"></script>
+		<script src="includes/js/form-pemesanan/pos-dataProduk.js"></script>
+		<script src="includes/js/form-pemesanan/del-dataProduk.js"></script>
+		<script src="includes/js/form-pemesanan/dat-totalPesanan.js"></script>
+		
+		<script src="includes/js/form-pemesanan/sav-dataPesanan.js"></script>
+		
+		<script>
+			//$(".row_data").removeClass("hidden");
+		</script>
+        
+    </body>
+    
+</html>
